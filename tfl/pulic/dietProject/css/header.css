@@ -1,0 +1,156 @@
+/* 头部导航栏 */
+/* 头部整体距离上边有一定的空间 */
+.nav_header{
+    /* 头部的宽高，位置 */
+    width: 996px;
+    height: 47px;
+    margin: 30px auto 5px;
+    position: relative;
+}
+.nav_header ul.clear{
+    width: 100%;
+    height: 100%;
+    box-shadow: 5px 5px 10px #000;
+    border-radius: 5px;
+    background-image:linear-gradient(to top,#3d3d3d,#505050); 
+}
+/* 每个li的样式 */
+.nav_header ul.clear>li{
+    /* 每个li左浮动 */
+    float: left;
+    position: relative;
+    width: 25%;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #000;
+}
+/* 悬浮于a标签上面改变颜色 */
+.nav_header ul.clear>li>a:hover{
+    color: #ccc;
+}
+.nav_header ul.clear>li:last-child{
+    z-index: 100;
+    border-right: none;
+}
+
+.nav_header ul.clear>li>a{
+    /* a标签设置成块级元素 */
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* 居中对齐 */
+    text-align: center;
+    line-height: 47px;
+}
+
+/* 图片的设置 */
+.nav_header ul.clear>li>img{
+    position: absolute;
+    top: 13.5px;
+    left: 68px;
+    width: 20px;
+    height: 20px;
+}
+
+.nav_header ul.clear>li>a{
+    color: #fff;
+    font-size: 1.25em;
+}
+/* 帮助的下拉 */
+/* 隐藏 */
+ul.xia_la{
+    float: right;
+    margin-right: 40px;
+    text-align: center;
+    display: none;
+}
+/* 显示 */
+li.last:hover>ul.xia_la{
+    z-index: 100;
+    display: block;
+}
+ul.xia_la>li:first-child{width: 162px;height: 1px;margin-top: -3px}
+ul.xia_la>li:nth-child(2){
+    width: 162px;height: 5px;
+    background: red;
+    display: inline-block;
+    border-radius: 5px 5px 0 0
+}
+ul.xia_la>li:last-child{
+    width: 162px;height: 5px;
+    background: red;
+    border-radius: 0 0 5px 5px
+}
+ul.xia_la>li:nth-child(3){margin-top: -5px;}
+li.xia{width: 162px;height: 31px;line-height: 31px}
+li.xia a:hover{background-color: #fff;color: #3d3d3d;}
+li.xia a{
+    display: inline-block;
+    width: 162px;
+    height: 31px;
+    color: #fff;
+    background-color: #3d3d3d;
+    font-weight: 800;
+}
+/* 下拉框点击文本 */
+div.xia_text{
+    width: 996px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #f3f3f3;
+}
+div.xia_text div{
+    border: 2px solid #ddd;
+}
+div.xia_text div{
+    float: right;
+    width: 760px;
+}
+div.xia_text:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+div.xia_text div.d1{
+    background-color: aqua;
+}
+div.xia_text div.d2{
+    position: absolute;
+    top: 0px;right: 0px;
+    background-color: aqua;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

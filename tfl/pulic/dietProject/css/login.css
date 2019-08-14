@@ -1,0 +1,97 @@
+/* 登录页面样式 */
+.login{
+    /* 表单大小和位置 */
+    width: 680px;
+    height: 384px;
+    margin: 15px auto;
+}
+
+h2{
+    /* 字体大小 */
+    font-size: 1.375rem;
+    margin: 15px auto;
+    /* 字体位置 */
+    text-align: center;
+}
+
+/* 登录表单的位置 */
+.login_model{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.login_model>*{
+    display: block;
+}
+
+/* input的样式 */
+input{
+    width: 300px;
+    height: 52px;
+    /* 盒子模型 */
+    box-sizing: border-box;
+    /* 内边距 */
+    padding: 15px;
+}
+
+/* 表单的边角 */
+.login_model>input:first-child{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.login_model>input:nth-child(2){
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* 登录按钮 */
+.login_model>button{
+    margin: 15px auto;
+    width: 300px;
+    height: 52px;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    /* 边框透明 */
+    border-color: transparent;
+    /* 颜色渐变 */
+    background-image:linear-gradient(to top,#d21920,#ec4c34);
+}
+.login_model>p{
+    text-align: right;
+}
+
+.login_model>p>a{
+    color: #3d3d3d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
