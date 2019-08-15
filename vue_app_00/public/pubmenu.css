@@ -1,0 +1,41 @@
+*{margin: 0;padding: 0;}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+.float-left{
+   float: left;
+}
+.padding-left{
+    padding-left:20px;
+}
+
+.button_a{
+    display: inline-block;
+    width: 92px;
+    height:30px;
+    background: linear-gradient(180deg,rgb(245, 205, 205),rgb(238, 120, 10));  
+    text-align: center;
+    line-height: 30px;
+    color:#fff;
+    font-weight: 450px;
+    opacity: 0.9;
+}
+/* 当按钮被点击时 */
+.button_a:active{
+    opacity: 0.7;
+    cursor: pointer;/*变手*/
+}
+.clear{
+    content: "";
+    display: block;
+} 
+/* 控制show区域 显示 隐藏 */
+.active{
+    display: block;
+}
+.display-none{
+    display: none;
+}
