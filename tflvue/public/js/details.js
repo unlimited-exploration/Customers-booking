@@ -1,0 +1,41 @@
+new Vue({
+  el:"#parent",
+  data:{
+    product:{price:0},//防止首次加载时product.price.toFixed(2)报错
+    pics:[{md:""}],//防止首次加载时pics[0].md报错
+    specs:[],
+    lid:0,
+    i:0,//记录当前正在显示第几张图片
+  },
+  created(){
+    var lid=location.search.split("=")[1];
+    if(lid){
+      //保存当前正在显示的商品编号，以备页面中其它地方比较时使用。
+      this.lid=lid; 
+      axios.get(
+        "http://localhost:3000/details",
+        {
+          params:{
+            lid
+          }
+        }
+      ).then(result=>{
+        console.log(result.data);
+        var {product, pics, specs}=result.data;
+        console.log(product);
+        console.log(pics);
+        console.log(specs);
+        this.product=product;
+        this.pics=pics;
+        this.specs=specs;
+      })
+    }
+  },
+  methods:{
+    //当鼠标进入每个li时，修改data中i变量的值，为当前li的下标。
+    changei(i){
+      this.i=i;
+      //data中i改变，导致中图片的src和大图片的background-image自动同时变化。
+    }
+  }
+})
