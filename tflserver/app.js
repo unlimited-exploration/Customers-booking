@@ -1,5 +1,10 @@
 //使用express构建web服务器
-
+const express = require('express');
+const bodyParser = require('body-parser');
+const index=require("./routes/index");
+const details=require("./routes/details");
+const products=require("./routes/products");
+const cors=require("cors");
 /*引入路由模块*/
 
 
