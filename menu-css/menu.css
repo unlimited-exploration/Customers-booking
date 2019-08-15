@@ -1,0 +1,288 @@
+#menu{
+   width: 996px;
+   /* height:700px; */
+   /* border: 1px solid #f00;  */
+   margin: 0 auto;
+   background:#eee;
+}
+#menu .menu_nav{
+   height:30px;
+   background: #C20C0C;
+}
+#menu .menu_nav ul{
+    width: 450px;
+    height:100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+#menu .menu_nav ul li{
+    text-align: right;
+    line-height:29px;
+    padding: 0px 5px;
+    border-radius: 20px;
+    width: 80px;
+    background-size: 30px;
+    /* background-color:#f00; */
+}
+/* 导航栏小图标 */
+.menu_nav>ul>li:nth-child(1){
+    background: url("../img/xiaotubiao/recai.png") 6px -3px no-repeat;
+}
+.menu_nav>ul>li:nth-child(2){
+    background: url("../img/xiaotubiao/liangcai.png") 6px -3px no-repeat;
+}
+.menu_nav>ul>li:nth-child(3){
+    background: url("../img/xiaotubiao/iocn-.png") 6px -3px no-repeat;
+}
+.menu_nav>ul>li:nth-child(4){
+    background: url("../img/xiaotubiao/jiushui.png") 6px -3px no-repeat;
+}
+
+
+.menu_nav_active{
+    opacity: 0.6;
+    border: 1px solid rgb(224, 170, 170);
+}
+#menu .menu_nav ul li a{
+    color:#fff;
+    display: inline-block;
+    font-size: 16px;
+    width: 52px;
+    height:30px;
+}
+
+#menu .menu_nav ul li:hover{
+    background-color:rgba(146, 113, 81, 0.4);
+    border:1px solid rgb(253, 253, 252);
+    font-weight: 450; /*加粗*/
+    cursor:pointer; /*变手*/
+}
+/* show区域 */
+.show{
+    margin-top:20px;
+    margin-left:20px;
+    display: flex;
+    justify-content: space-between;
+    /* background: #C20C0C */
+}
+
+.show .right_img{
+    /* width: 200px; */
+    width: 316px;
+    background:#eee;
+}
+/* 食品图片展示 */
+.menu_mian ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    margin-right: 20px;
+    /* background-color:rgb(240, 147, 147); */
+}
+/* 主体区域的div宽度 */
+.menu_mian .cai{
+    width: 680px;
+}
+.menu_mian .cai ul li{
+    width: 330px;
+    margin-bottom: 10px;
+}
+
+.menu_mian .cai ul li>a{
+    display: inline-block;
+}
+
+.show .menu_mian .cai img{
+    width: 174px;
+    height: 155px;
+    border-radius: 10px;
+    
+}
+/* 设置菜的介绍 */
+.menu_mian .cai ul li{
+    position: relative;
+ }
+.menu_mian .cai ul>li>div.explain{
+    /* border:1px solid #000; */
+    position: absolute;
+    left:180px;
+    top:0px;
+    width: 140px;
+    height: 92%;
+    padding-top:10px;
+    background: rgb(189, 182, 182);
+    /* box-shadow: #222 2px 2px 2px; */
+    border-radius: 5px;
+}
+.menu_mian .cai div.explain span:nth-child(1){
+    position: absolute;
+    top: 10px;
+    left:32px;
+    font-size: 18px;
+    font-weight: bold;
+    color:rgba(233, 60, 17,0.8);
+}
+.menu_mian .cai ul>li>div.explain span:nth-child(2){
+    color: rgba(11, 94, 11, 0.8);
+    position: absolute;
+    font-weight: 500;
+    top: 46px;
+    left:42px;
+    
+}
+.menu_mian .cai ul>li>div.explain a:nth-child(3){
+    position: absolute;
+    top:75px;
+    left:20px;
+    width: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: rgb(238, 75, 75);
+    cursor: pointer;
+}
+.menu_mian .cai ul>li>div.explain a:nth-child(5){
+    position: absolute;
+    top:75px;
+    left:82px;
+    width: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    background: rgb(238, 75, 75);
+    cursor: pointer;
+}
+/* 数量span */
+.menu_mian .cai ul>li>div.explain span:nth-child(4){
+    color: rgba(243, 7, 7, 0.8);
+    position: absolute;
+    font-weight: 500;
+    top: 77px;
+    left:50px;
+    width:32px;
+    /* background: #C20C0C; */
+    text-align: center;
+}
+/* 确定按钮 */
+.menu_mian .cai ul>li>div.explain a:nth-child(6){
+    position: absolute;
+    top: 113px;
+    left:20px;
+    border-radius: 5px;
+}
+
+/* 右侧区域 */
+.show .right_img div.notlogin img{
+    width: 160px; 
+}
+.show .right_img div.notlogin img:nth-child(1){
+    margin-bottom: 20px;
+}
+/* .show .right_img div.yeslogin input{
+    width: 120px;
+} */
+
+/* 右侧登录样式 */
+.right_img div.yeslogin{
+    width:260px;
+    /* height:500px; */
+    margin: 0 auto;
+    background:#fff;
+    margin-top:50px;
+    font-family: "宋体";
+    box-shadow: rgb(82, 80, 80) 5px 5px 5px;
+}
+.right_img .yeslogin h2{
+    text-align: center;
+    background: rgb(196, 56, 56);
+    color:#000;
+    height: 40px;
+    font-size: 28px;
+    line-height: 40px;
+    font-family: "宋体";
+    font-weight: 500;
+}
+/* 订餐时间 */
+.right_img .right_time {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #004;
+}
+.right_img .right_time span{
+    display:block;
+    font-family: "宋体";
+    font-size: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #004;
+}
+.right_img .right_time input{
+    display:inline-block;
+    width: 130px;
+    font-size: 14px;
+    margin-top:10px;
+    background: #fff;
+}
+.right_img .right_time input:last-child{
+    width:80px;
+}
+.right_img .discounts{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #004;
+    height: 100px;
+}
+
+/* 选择包厢 */
+.right_img .box{
+    font-size: 16px;
+    font-family: "宋体";
+}
+.right_img .box select{
+    font-family: "宋体";
+    font-size: 15px;
+}
+.right_img .box select option{
+    background: #0f0;
+}
+.right_img .box select option:hover{
+    /* border:1px solid #f00; */
+    background:rgb(204, 99, 99);
+}
+/* 购物车 */
+.right_img .shopp{
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-left:5px; */
+    /* width: 310px; */
+}
+.right_img .shopp .portion{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    background: rgb(238, 233, 233);
+    width: 93%;
+    height:40px;
+    margin: auto;
+    /* margin-top: 10px; */
+    border-radius: 5px;
+}
+.right_img .shopp div:nth-child(1) img{
+    width: 40px;
+    height:40px;
+}
+.right_img .shopp div:nth-child(2),.right_img .shopp div:nth-child(3){
+    /* width: 25px; */
+    font-size: 15px;
+    color:#C20C0C;
+    line-height: 40px;
+}
+.right_img .shopp div:nth-child(4){
+    line-height: 40px;
+    font-size: 15px;
+    color:#004;
+    /* background: #C20C0C; */
+}
+.right_img .shopp div:nth-child(5) a{
+     line-height: 45px;
+     font-size: 15px;
+     color:red;
+     font-weight: bold;
+}
