@@ -25,7 +25,7 @@ router.get("/",(req,res)=>{
     //join(" and ");
     var where=kws.join(" and ");
     //"title like '%mac%' and title like '%i5%' and title like '%128g%'"
-    var sql=`select *,(select md from tfl_laptop_pic where laptop_id=lid limit 1) as md from tfl_laptop where ${where}`;
+    var sql=`select *,(select md from xz_laptop_pic where laptop_id=lid limit 1) as md from xz_laptop where ${where}`;
     query(sql,[])
     .then(result=>{
       output.count=result.length;
@@ -49,7 +49,7 @@ router.get("/shelp",(req,res)=>{
     arr[i]=`title like '%${elem}%'`;
   })
   var where=kws.join(" and ");
-  var sql=`select lid,title from tfl_laptop where ${where} limit 10`;
+  var sql=`select lid,title from xz_laptop where ${where} limit 10`;
   query(sql,[]).then(result=>{
     res.send(result);
   })
