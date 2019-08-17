@@ -39,7 +39,14 @@ export default {
 
 <style>
 
+<<<<<<< HEAD
 </style>
  ———————————————— 
 版权声明：本文为CSDN博主「ErnestToBeBetter」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/ErnestToBeBetter/article/details/84304778
+=======
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
+>>>>>>> f5747681680d0b191c8be87838bb028095c0290f
