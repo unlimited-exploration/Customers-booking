@@ -1,14 +1,14 @@
 // 处理登陆注册功能
-const db = require('./db.js')
-exports.start = (req,res)=>{
-}
+// const db = require('./db.js')
+const pool = require('./pool.js')
 // 登录处理
 exports.login = (req,res)=>{
+    console.log(1111111111111111111)
     let uname = req.body.uname
     let upwd = req.body.upwd
     // 查询语句
     let sql = 'select * from tfl_login where uname = ? and upwd = ?'
-    db.base(sql,uname,(result)=>{
+    db.pool(sql,uname,(result)=>{
         if(!result.length){
             return res.json({ status: 1, msg: '登录失败' })
         }else{
@@ -29,7 +29,7 @@ exports.register = (req,res)=>{
     let sql = 'select * from tfl_login where uname = ? and upwd = ?'
     // 插入语句
     let insert = 'insert into tfl_login set ?'
-    db.base(sql,uname,(result)=>{
+    db.pool(sql,uname,(result)=>{
         console.log(result.length)
         if(result.length!==0){
             return res.json({ status: 1, msg: '该用户名已经存在' })

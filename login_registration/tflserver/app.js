@@ -17,7 +17,9 @@ app.use('/api/*', function (req, res, next) {
     // next()方法表示进入下一个路由
     next();
 });
-app.listen(5050);//部署新浪云，硬性要求必须监听5050端口
+app.listen(4000,function(){
+  console.log("running....")
+});//部署新浪云，硬性要求必须监听5050端口
 app.use(cors({
   origin:"http://localhost:8080"//不能用*
 }));//从此所有响应，自动带Access-Control-Allow-Origin:http://127.0.0.1:5500

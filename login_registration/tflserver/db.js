@@ -5,7 +5,7 @@ exports.base = (sql,data,callback)=>{
 	host     : 'localhost',
   	user     : 'root',
   	password : '',
-  	database : 'user'
+  	database : 'login'
 	})
 	connection.connect();
 	connection.query(sql,data, function (error, results, fields) {

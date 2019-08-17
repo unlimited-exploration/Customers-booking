@@ -14,12 +14,9 @@
           <div id="preview" class="col pr-0">
             <div class="card bg-transparent mr-5 position-absolute">
               <img class="card-img-top" :src="pics[i].md" alt="Card image cap" id="mImg">
-              <div id="mask" class="position-absolute" :class="{'d-none':!maskShow}" :style="maskStyle"></div>
-              <div id="super-mask" class="position-absolute" @mouseover="toggle" @mouseout="toggle"
-              @mousemove="maskMove"></div>
-              <div id="div-lg" class="position-absolute" :class="{'d-none':!maskShow}" :style="{
-                'background-image':`url(${pics[i].lg})`,'background-position':bgPosition
-              }"></div>
+              <div id="mask" class="position-absolute d-none"></div>
+              <div id="super-mask" class="position-absolute"></div>
+              <div id="div-lg" class="position-absolute d-none" :style="{'background-image':`url(${pics[i].lg})`}"></div>
               <div class="card-body p-0 text-center">
                 <img src="img/product_detail/hover-prev.png" class="btn float-left btn-light border-0 p-1 pt-4 pb-4" :class="{disabled:leftDisabled}" @click="move(-1)" id="btnLeft">
                 <div class="d-inline-block pt-2 mx-0 m-auto">
@@ -30,7 +27,7 @@
                     </li>
                   </ul>
                 </div>
-                <img src="img/product_detail/hover-next.png" class="btn float-right btn-light border-0 p-1 pt-4 pb-4 " :class="{disabled:rightDisabled}" id="btnRight"  @click="move(+1)">
+                <img src="img/product_detail/hover-next.png" class="btn float-right btn-light border-0 p-1 pt-4 pb-4" :class="{disabled:rightDisabled}" id="btnRight" @click="move(+1)">
               </div>
             </div>
           </div>
@@ -246,30 +243,19 @@ export default {
       product:{price:0},//防止首次加载时product.price.toFixed(2)报错
       pics:[{md:""}],//防止首次加载时pics[0].md报错
       specs:[],
+      lid:0,
       i:0,//记录当前正在显示第几张图片
 
       ulStyle:{//控制ul的样式
-        width:0,
-        "margin-left":0, //绑定margin-left
-        transition:""
+          width:0,
+          "margin-left":0//绑定margin-left
       },
       times:0,//记录左移的次数
-      //ulStyle的margin-left=-times*62
-
-      maskShow:false,
-      maskStyle:{
-        left:0,
-        top:0
-      }
+      // ulStyle的margin-left=-times*62
     }
   },
   props:["lid"],
-  computed:{
-    bgPosition(){
-      var left=parseInt(this.maskStyle.left);
-      var top=parseInt(this.maskStyle.top);
-      return `-${left*16/7}px -${top*16/7}px`
-    },
+  computed: {
     leftDisabled(){//左边按钮的禁用状态
       return this.times==0;
     },
@@ -278,54 +264,36 @@ export default {
     }
   },
   created(){
-    //在页面加载时，发送一次请求，初始化data中的数据
+    // 在页面加载时，发送一次请求，初始化data中的数据
     this.load();
   },
   watch:{//监控
-    times(){
+    times(){//当times变化时，自动修改ul的margin-left
       this.ulStyle["margin-left"]=-this.times*62+"px";
     },
-    pics(){
+    pics(){//当pics变化时，自动修改ul的width
       this.ulStyle.width=this.pics.length*62+'px';
     },
     lid(){//lid变量的变化
-      //只要lid发生变化
-      //就重新请求服务端数据
-      //更换data中的变量
+    // 只要lid发生变化
+    // 就重新请求服务器数据
+    // 更换data中的变量
       this.load();
     }
   },
   methods:{
-    maskMove(e){
-      var left=e.offsetX-88;
-      var top=e.offsetY-88;
-      if(left<0){left=0}
-      else if(left>176){left=176}
-      if(top<0){top=0}
-      else if(top>176){top=176}
-      top+="px";
-      left+="px";
-      this.maskStyle={left,top}
-    },
-    toggle(){
-      this.maskShow=!this.maskShow;
-    },
     move(i){
-      //如果点的是左边按钮，且左边按钮没有禁用时
-      //或
-      //如果点的是右边按钮，且右边按钮没有禁用
       if((i==-1&&this.leftDisabled==false)||(i==1&&this.rightDisabled==false)){
         this.times+=i;
-        if(this.times<0){ this.times=0}
-        else if(this.times>this.pics.length-4){
+        if(this.times<0){
+          this.times=0
+        }else if(this.times>this.pics.length-4){
           this.times=this.pics.length-4
         }
       }
     },
     load(){//封装发送ajax请求和初始化数据的方法，用于反复调用
       if(this.lid){
-        //在发请求之前就清除transition
-        this.ulStyle.transition="";
         this.axios.get(
           "http://localhost:5050/details",
           {
@@ -336,18 +304,12 @@ export default {
         ).then(result=>{
           console.log(result.data);
           var {product, pics, specs}=result.data;
+          console.log(product);
+          console.log(pics);
+          console.log(specs);
           this.product=product;
           this.pics=pics;
           this.specs=specs;
-          //每次重新加载页面后，都要把移动次数归零
-          this.times=0;
-          this.i=0;//先前显示的图片下标也归0
-          //删除src/assets/css/details.css中35~37行
-          //一切都初始化完之后，最后再设置ul的transition
-          setTimeout(()=>{
-            this.ulStyle.transition=
-              "margin-left .5s linear";
-          },50)
         })
       }
     },

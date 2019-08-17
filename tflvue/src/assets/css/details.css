@@ -32,6 +32,9 @@
   width:248px;
   overflow:hidden;
 }
+#preview>.card>.card-body>div>ul{
+  transition:all .5s linear;
+}
 #preview>.card>.card-body>div>ul>li{
   width:62px; height:62px;
 }
