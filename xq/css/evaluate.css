@@ -1,0 +1,51 @@
+/* 评价区样式设置 */
+.pj_area{
+    /* 996px的宽度 */
+    width: 996px;
+    /* 居中对齐 */
+    margin: 15px auto;
+}
+/* 第一部分：图片样式 */
+.pj_img{
+    /* 宽高 */
+    width: 996px;
+    height: 600px;
+}
+
+.pj_img>img{
+    width: 996px;
+    height: 600px;
+}
+
+/* 图片下面文字样式 */
+.pj_shopping,.product_introduction{
+    width: 996px;
+    height: 50px;
+    margin: 15px ;
+}
+/* 商品名称和价格部分 */
+.pj_shopping>div{
+    color: #000;
+    font-size: 20px;
+    font-weight:bolder;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
