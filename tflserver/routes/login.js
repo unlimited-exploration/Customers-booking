@@ -3,10 +3,9 @@ const router=express.Router();
 const pool=require("../pool");
 
 // 登录组件
-router.post("/login",function(req,res){
-  console.log(1111111111111)
-  var uname = req.body.uname;
-  var upwd = req.body.upwd;
+router.get("/login",function(req,res){
+  var uname = req.query.uname;
+  var upwd = req.query.upwd;
   var sql = 'select * from tfl_login where uname = ? and upwd = ?'
   // console.log(sql);
   pool.query(sql,[uname,upwd],(err,result)=>{
