@@ -152,6 +152,14 @@ CREATE TABLE user_shopping(
     price DOUBLE NOT NULL               #菜的价格      价格
 );
 
+CREATE TABLE user_indent(
+  sid INT PRIMARY KEY,                  #订单号ID
+    uid INT NOT NULL,                   #是谁点的菜    id/登录表中的id
+    sname VARCHAR(50) NOT NULL,         #菜的名称      菜名
+    quantity VARCHAR(50) NOT NULL,      #某种菜的数量  数量
+    price DOUBLE NOT NULL               #菜的价格      价格
+);
+
 #(2)创建表 tfl_login
 CREATE TABLE tfl_login(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -289,6 +297,14 @@ INSERT INTO tfl_user VALUES
 (NULL, 'doudou', '123456', '13501234569', 'img/avatar/default.png', '窦志强', '1'),
 (NULL, 'yaya', '123456', '13501234560', 'img/avatar/default.png', '秦小雅', '0');
 
+/**订单信息**/
+INSERT INTO user_indent VALUES
+(0, 0, '98k', 23, 998.0),
+(1, 1, 'm24', 25, 556.0),
+(2, 2, '416', 35, 556.0),
+(3, 3, 'mp5', 99, 998.0);
+
+
 /****首页轮播广告商品****/
 INSERT INTO tfl_index_carousel VALUES
 (NULL, 'img/index/r_15','轮播广告商品1','product_details.html?lid=28'),
@@ -301,81 +317,81 @@ INSERT INTO tfl_index_product VALUES
 (NULL, '首页商品标题2', 'product_details.html?lid=102','img/index/r_23.jpg'),
 (NULL, '首页商品标题3', 'product_details.html?lid=103','img/index/r_24.jpg');
 
-/****菜单菜品****/
-INSERT INTO tfl_index_menu VALUES
-/***肉菜****/
-(NULL, '菜单商品标题1', 'product_details.html?lid=1',49,'img/menu/meat/r_1.jpg'),
-(NULL, '菜单商品标题2', 'product_details.html?lid=2',68,'img/menu/meat/r_2.jpg'),
-(NULL, '菜单商品标题3', 'product_details.html?lid=3',78,'img/menu/meat/r_3.jpg'),
-(NULL, '菜单商品标题4', 'product_details.html?lid=4',69,'img/menu/meat/r_4.jpg'),
-(NULL, '菜单商品标题5', 'product_details.html?lid=5',78,'img/menu/meat/r_5.jpg'),
-(NULL, '菜单商品标题6', 'product_details.html?lid=6',85,'img/menu/meat/r_6.jpg'),
-(NULL, '菜单商品标题7', 'product_details.html?lid=7',68,'img/menu/meat/r_7.jpg'),
-(NULL, '菜单商品标题8', 'product_details.html?lid=8',99,'img/menu/meat/r_8.jpg'),
-(NULL, '菜单商品标题9', 'product_details.html?lid=9',56,'img/menu/meat/r_9.jpg'),
-(NULL, '菜单商品标题10', 'product_details.html?lid=10',68,'img/menu/meat/r_10.jpg'),
-(NULL, '菜单商品标题11', 'product_details.html?lid=11',58,'img/menu/meat/r_11.jpg'),
-/***素菜****/
-(NULL, '菜单商品标题31', 'product_details.html?lid=31',32,'img/menu/vegetable plate/s_1.jpg'),
-(NULL, '菜单商品标题32', 'product_details.html?lid=32',33,'img/menu/vegetable plate/s_2.jpg'),
-(NULL, '菜单商品标题33', 'product_details.html?lid=33',35,'img/menu/vegetable plate/s_3.jpg'),
-(NULL, '菜单商品标题34', 'product_details.html?lid=34',45,'img/menu/vegetable plate/s_4.jpg'),
-(NULL, '菜单商品标题35', 'product_details.html?lid=35',35,'img/menu/vegetable plate/s_5.jpg'),
-(NULL, '菜单商品标题36', 'product_details.html?lid=36',39,'img/menu/vegetable plate/s_6.jpg'),
-(NULL, '菜单商品标题37', 'product_details.html?lid=37',52,'img/menu/vegetable plate/s_7.jpg'),
-(NULL, '菜单商品标题38', 'product_details.html?lid=38',36,'img/menu/vegetable plate/s_8.jpg'),
-(NULL, '菜单商品标题39', 'product_details.html?lid=39',35,'img/menu/vegetable plate/s_9.jpg'),
-/***甜点***/
-(NULL, '菜单商品标题51', 'product_details.html?lid=51',20,'img/menu/Dessert/t_1.jpg'),
-(NULL, '菜单商品标题52', 'product_details.html?lid=52',21,'img/menu/Dessert/t_2.jpg'),
-(NULL, '菜单商品标题53', 'product_details.html?lid=53',38,'img/menu/Dessert/t_3.jpg'),
-(NULL, '菜单商品标题54', 'product_details.html?lid=54',42,'img/menu/Dessert/t_4.jpg'),
-(NULL, '菜单商品标题55', 'product_details.html?lid=55',32,'img/menu/Dessert/t_5.jpg'),
-(NULL, '菜单商品标题56', 'product_details.html?lid=56',45,'img/menu/Dessert/t_6.jpg'),
-/***酒水****/
-(NULL, '菜单商品标题71', 'product_details.html?lid=71',8,'img/img/menu/soft drink/j_1.jpg'),
-(NULL, '菜单商品标题72', 'product_details.html?lid=72',588,'img/img/menu/soft drink/j_2.jpg'),
-(NULL, '菜单商品标题73', 'product_details.html?lid=73',1098,'img/img/menu/soft drink/j_3.jpg'),
-(NULL, '菜单商品标题74', 'product_details.html?lid=74',12,'img/img/menu/soft drink/j_4.jpg'),
-(NULL, '菜单商品标题75', 'product_details.html?lid=75',19,'img/img/menu/soft drink/j_5.jpg'),
-(NULL, '菜单商品标题76', 'product_details.html?lid=76',20,'img/img/menu/soft drink/j_6.jpg'),
-(NULL, '菜单商品标题77', 'product_details.html?lid=77',22,'img/img/menu/soft drink/j_7.jpg'),
-(NULL, '菜单商品标题78', 'product_details.html?lid=78',18,'img/img/menu/soft drink/j_8.jpg'),
-(NULL, '菜单商品标题79', 'product_details.html?lid=79',22,'img/img/menu/soft drink/j_9.jpg'),
-(NULL, '菜单商品标题80', 'product_details.html?lid=80',23,'img/img/menu/soft drink/j_10.jpg'),
-(NULL, '菜单商品标题81', 'product_details.html?lid=81',25,'img/img/menu/soft drink/j_11.jpg'),
-(NULL, '菜单商品标题82', 'product_details.html?lid=82',5,'img/img/menu/soft drink/j_12.jpg'),
-(NULL, '菜单商品标题83', 'product_details.html?lid=83',4,'img/img/menu/soft drink/j_13.jpg'),
-(NULL, '菜单商品标题84', 'product_details.html?lid=84',4,'img/img/menu/soft drink/j_14.jpg'),
-(NULL, '菜单商品标题85', 'product_details.html?lid=85',4,'img/img/menu/soft drink/j_15.jpg')
-;
-CREATE TABLE comments_info (
-  id VARCHAR(32) NOT NULL COMMENT '评论主键id',
-  owner_id VARCHAR(32) NOT NULL COMMENT '被评论者id，可以是人、项目、资源',
-  from_id VARCHAR(32) NOT NULL COMMENT '评论者id',
-  from_name VARCHAR(32) NOT NULL COMMENT '评论者名字',
-  from_avatar VARCHAR(512) DEFAULT '' COMMENT '评论者头像',
-  like_num int(11) DEFAULT '0' COMMENT '点赞的数量',
-  content VARCHAR(512) DEFAULT NULL COMMENT '评论内容',
-  create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (id),
-KEY owner_id (owner_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='评论主表';
+-- /****菜单菜品****/
+-- INSERT INTO tfl_index_menu VALUES
+-- /***肉菜****/
+-- (NULL, '菜单商品标题1', 'product_details.html?lid=1',49,'img/menu/meat/r_1.jpg'),
+-- (NULL, '菜单商品标题2', 'product_details.html?lid=2',68,'img/menu/meat/r_2.jpg'),
+-- (NULL, '菜单商品标题3', 'product_details.html?lid=3',78,'img/menu/meat/r_3.jpg'),
+-- (NULL, '菜单商品标题4', 'product_details.html?lid=4',69,'img/menu/meat/r_4.jpg'),
+-- (NULL, '菜单商品标题5', 'product_details.html?lid=5',78,'img/menu/meat/r_5.jpg'),
+-- (NULL, '菜单商品标题6', 'product_details.html?lid=6',85,'img/menu/meat/r_6.jpg'),
+-- (NULL, '菜单商品标题7', 'product_details.html?lid=7',68,'img/menu/meat/r_7.jpg'),
+-- (NULL, '菜单商品标题8', 'product_details.html?lid=8',99,'img/menu/meat/r_8.jpg'),
+-- (NULL, '菜单商品标题9', 'product_details.html?lid=9',56,'img/menu/meat/r_9.jpg'),
+-- (NULL, '菜单商品标题10', 'product_details.html?lid=10',68,'img/menu/meat/r_10.jpg'),
+-- (NULL, '菜单商品标题11', 'product_details.html?lid=11',58,'img/menu/meat/r_11.jpg'),
+-- /***素菜****/
+-- (NULL, '菜单商品标题31', 'product_details.html?lid=31',32,'img/menu/vegetable plate/s_1.jpg'),
+-- (NULL, '菜单商品标题32', 'product_details.html?lid=32',33,'img/menu/vegetable plate/s_2.jpg'),
+-- (NULL, '菜单商品标题33', 'product_details.html?lid=33',35,'img/menu/vegetable plate/s_3.jpg'),
+-- (NULL, '菜单商品标题34', 'product_details.html?lid=34',45,'img/menu/vegetable plate/s_4.jpg'),
+-- (NULL, '菜单商品标题35', 'product_details.html?lid=35',35,'img/menu/vegetable plate/s_5.jpg'),
+-- (NULL, '菜单商品标题36', 'product_details.html?lid=36',39,'img/menu/vegetable plate/s_6.jpg'),
+-- (NULL, '菜单商品标题37', 'product_details.html?lid=37',52,'img/menu/vegetable plate/s_7.jpg'),
+-- (NULL, '菜单商品标题38', 'product_details.html?lid=38',36,'img/menu/vegetable plate/s_8.jpg'),
+-- (NULL, '菜单商品标题39', 'product_details.html?lid=39',35,'img/menu/vegetable plate/s_9.jpg'),
+-- /***甜点***/
+-- (NULL, '菜单商品标题51', 'product_details.html?lid=51',20,'img/menu/Dessert/t_1.jpg'),
+-- (NULL, '菜单商品标题52', 'product_details.html?lid=52',21,'img/menu/Dessert/t_2.jpg'),
+-- (NULL, '菜单商品标题53', 'product_details.html?lid=53',38,'img/menu/Dessert/t_3.jpg'),
+-- (NULL, '菜单商品标题54', 'product_details.html?lid=54',42,'img/menu/Dessert/t_4.jpg'),
+-- (NULL, '菜单商品标题55', 'product_details.html?lid=55',32,'img/menu/Dessert/t_5.jpg'),
+-- (NULL, '菜单商品标题56', 'product_details.html?lid=56',45,'img/menu/Dessert/t_6.jpg'),
+-- /***酒水****/
+-- (NULL, '菜单商品标题71', 'product_details.html?lid=71',8,'img/img/menu/soft drink/j_1.jpg'),
+-- (NULL, '菜单商品标题72', 'product_details.html?lid=72',588,'img/img/menu/soft drink/j_2.jpg'),
+-- (NULL, '菜单商品标题73', 'product_details.html?lid=73',1098,'img/img/menu/soft drink/j_3.jpg'),
+-- (NULL, '菜单商品标题74', 'product_details.html?lid=74',12,'img/img/menu/soft drink/j_4.jpg'),
+-- (NULL, '菜单商品标题75', 'product_details.html?lid=75',19,'img/img/menu/soft drink/j_5.jpg'),
+-- (NULL, '菜单商品标题76', 'product_details.html?lid=76',20,'img/img/menu/soft drink/j_6.jpg'),
+-- (NULL, '菜单商品标题77', 'product_details.html?lid=77',22,'img/img/menu/soft drink/j_7.jpg'),
+-- (NULL, '菜单商品标题78', 'product_details.html?lid=78',18,'img/img/menu/soft drink/j_8.jpg'),
+-- (NULL, '菜单商品标题79', 'product_details.html?lid=79',22,'img/img/menu/soft drink/j_9.jpg'),
+-- (NULL, '菜单商品标题80', 'product_details.html?lid=80',23,'img/img/menu/soft drink/j_10.jpg'),
+-- (NULL, '菜单商品标题81', 'product_details.html?lid=81',25,'img/img/menu/soft drink/j_11.jpg'),
+-- (NULL, '菜单商品标题82', 'product_details.html?lid=82',5,'img/img/menu/soft drink/j_12.jpg'),
+-- (NULL, '菜单商品标题83', 'product_details.html?lid=83',4,'img/img/menu/soft drink/j_13.jpg'),
+-- (NULL, '菜单商品标题84', 'product_details.html?lid=84',4,'img/img/menu/soft drink/j_14.jpg'),
+-- (NULL, '菜单商品标题85', 'product_details.html?lid=85',4,'img/img/menu/soft drink/j_15.jpg')
+-- ;
+-- CREATE TABLE comments_info (
+--   id VARCHAR(32) NOT NULL COMMENT '评论主键id',
+--   owner_id VARCHAR(32) NOT NULL COMMENT '被评论者id，可以是人、项目、资源',
+--   from_id VARCHAR(32) NOT NULL COMMENT '评论者id',
+--   from_name VARCHAR(32) NOT NULL COMMENT '评论者名字',
+--   from_avatar VARCHAR(512) DEFAULT '' COMMENT '评论者头像',
+--   like_num int(11) DEFAULT '0' COMMENT '点赞的数量',
+--   content VARCHAR(512) DEFAULT NULL COMMENT '评论内容',
+--   create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+--   update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+--   PRIMARY KEY (id),
+-- KEY owner_id (owner_id)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='评论主表';
 
-CREATE TABLE comments_reply (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  comment_id VARCHAR(32) NOT NULL COMMENT '评论主表id',
-  from_id VARCHAR(32) NOT NULL COMMENT '评论者id',
-  from_name VARCHAR(32) NOT NULL COMMENT '评论者名字',
-  from_avatar VARCHAR(512) DEFAULT '' COMMENT '评论者头像',
-  to_id VARCHAR(32) NOT NULL COMMENT '被评论者id',
-  to_name VARCHAR(32) NOT NULL COMMENT '被评论者名字',
-  to_avatar VARCHAR(512) DEFAULT '' COMMENT '被评论者头像',
-  content VARCHAR(512) DEFAULT NULL COMMENT '评论内容',
-  create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`),
-  KEY comment_id (`comment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='评论回复表';
+-- CREATE TABLE comments_reply (
+--   id int(11) NOT NULL AUTO_INCREMENT,
+--   comment_id VARCHAR(32) NOT NULL COMMENT '评论主表id',
+--   from_id VARCHAR(32) NOT NULL COMMENT '评论者id',
+--   from_name VARCHAR(32) NOT NULL COMMENT '评论者名字',
+--   from_avatar VARCHAR(512) DEFAULT '' COMMENT '评论者头像',
+--   to_id VARCHAR(32) NOT NULL COMMENT '被评论者id',
+--   to_name VARCHAR(32) NOT NULL COMMENT '被评论者名字',
+--   to_avatar VARCHAR(512) DEFAULT '' COMMENT '被评论者头像',
+--   content VARCHAR(512) DEFAULT NULL COMMENT '评论内容',
+--   create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+--   update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+--   PRIMARY KEY (`id`),
+--   KEY comment_id (`comment_id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='评论回复表';
 
